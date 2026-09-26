@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clippy</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div>
+        <h1>Clip<span>py</span></h1>
+        <p class="header-subtitle">Your saved snippets</p>
+      </div>
+      <button id="new-entry" class="button button-primary" type="button"><span class="button-icon icon-plus" aria-hidden="true"></span> New entry</button>
+    </header>
+
+    <section class="toolbar" aria-label="Entry tools">
+      <label class="search-box">
+        <span aria-hidden="true">⌕</span>
+        <input id="search" type="search" placeholder="Search entries..." autocomplete="off">
+      </label>
+      <div class="backup-actions">
+        <button id="export" class="button button-quiet" type="button"><span class="button-icon icon-download" aria-hidden="true"></span> Export</button>
+        <button id="import" class="button button-quiet" type="button"><span class="button-icon icon-upload" aria-hidden="true"></span> Import</button>
+        <input id="import-file" type="file" accept="application/json,.json" hidden>
+      </div>
+    </section>
+
+    <nav class="collection-tabs" role="tablist" aria-label="Snippet collections">
+      <button id="general-tab" class="collection-tab" type="button" role="tab" aria-selected="true" aria-controls="entries">General</button>
+      <button id="private-tab" class="collection-tab" type="button" role="tab" aria-selected="false" aria-controls="entries" title="Unlock private entries"><span class="button-icon icon-lock" aria-hidden="true"></span> Private</button>
+      <button id="lock-private" class="button button-quiet lock-private" type="button" hidden><span class="button-icon icon-lock" aria-hidden="true"></span> Lock</button>
+    </nav>
+
+    <div class="status-row">
+      <label class="select-all-control"><input id="select-all" type="checkbox"> Select all</label>
+      <p id="entry-count">0 entries</p>
+      <p id="status" role="status" aria-live="polite"></p>
+    </div>
+    <div id="selection-bar" class="selection-bar" hidden>
+      <span id="selection-count">0 selected</span>
+      <button id="clear-selection" class="button button-quiet" type="button"><span class="button-icon icon-x" aria-hidden="true"></span> Clear</button>
+      <button id="delete-selected" class="button button-danger-filled" type="button"><span class="button-icon icon-trash-2" aria-hidden="true"></span> Delete selected</button>
+    </div>
+    <section id="entries" class="entries" role="tabpanel" aria-labelledby="general-tab" aria-live="polite"></section>
+    <section id="empty-state" class="empty-state" hidden>
+      <div class="empty-mark" aria-hidden="true">✦</div>
+      <h2>Your cabinet is clear.</h2>
+      <p>Save the words you reach for often. They stay on this device until you export them.</p>
+      <button id="empty-new-entry" class="button button-primary" type="button"><span class="button-icon icon-plus" aria-hidden="true"></span> Create your first entry</button>
+    </section>
+  </main>
+  <dialog id="private-gate" class="private-gate" aria-labelledby="private-gate-title">
+    <form id="private-gate-form">
+      <h2 id="private-gate-title">Unlock private entries</h2>
+      <p>Enter your four-digit passcode.</p>
+      <label class="field" for="private-passcode">Passcode<input id="private-passcode" name="passcode" type="password" inputmode="numeric" autocomplete="off" maxlength="4" pattern="[0-9]{4}" required></label>
+      <p id="private-error" class="private-error" role="alert" aria-live="polite"></p>
+      <div class="form-actions">
+        <button id="cancel-private" class="button button-quiet" type="button"><span class="button-icon icon-x" aria-hidden="true"></span> Cancel</button>
+        <button class="button button-primary" type="submit"><span class="button-icon icon-lock-open" aria-hidden="true"></span> Unlock</button>
+      </div>
+    </form>
+  </dialog>
+  <script src="vendor/browser-polyfill.min.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

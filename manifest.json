@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Clippy",
+  "version": "1.0.0",
+  "description": "A private, offline clipboard and snippet manager called Clippy.",
+  "permissions": [
+    "storage",
+    "unlimitedStorage",
+    "downloads"
+  ],
+  "action": {
+    "default_title": "Open Clippy",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon-16.png",
+      "32": "icon-32.png",
+      "48": "icon-48.png"
+    }
+  },
+  "icons": {
+    "16": "icon-16.png",
+    "32": "icon-32.png",
+    "48": "icon-48.png",
+    "128": "icon-128.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "clipboard-cabinet@example.local",
+      "strict_min_version": "109.0"
+    }
+  }
+}

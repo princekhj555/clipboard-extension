@@ -1,0 +1,10 @@
+node_modules/
+
+# Local packaging output
+web-ext-artifacts/
+*.crx
+
+# Operating system and npm noise
+.DS_Store
+Thumbs.db
+npm-debug.log*

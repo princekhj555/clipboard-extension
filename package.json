@@ -1,0 +1,12 @@
+{
+  "name": "clipboard-cabinet",
+  "private": true,
+  "scripts": {
+    "vendor": "mkdir vendor 2>nul & copy /Y node_modules\\webextension-polyfill\\dist\\browser-polyfill.min.js vendor\\browser-polyfill.min.js & mkdir vendor\\lucide 2>nul & copy /Y node_modules\\lucide-static\\icons\\copy.svg vendor\\lucide\\copy.svg & copy /Y node_modules\\lucide-static\\icons\\pencil.svg vendor\\lucide\\pencil.svg & copy /Y node_modules\\lucide-static\\icons\\trash-2.svg vendor\\lucide\\trash-2.svg & copy /Y node_modules\\lucide-static\\icons\\plus.svg vendor\\lucide\\plus.svg & copy /Y node_modules\\lucide-static\\icons\\download.svg vendor\\lucide\\download.svg & copy /Y node_modules\\lucide-static\\icons\\upload.svg vendor\\lucide\\upload.svg & copy /Y node_modules\\lucide-static\\icons\\x.svg vendor\\lucide\\x.svg & copy /Y node_modules\\lucide-static\\icons\\check.svg vendor\\lucide\\check.svg & copy /Y node_modules\\lucide-static\\icons\\lock.svg vendor\\lucide\\lock.svg & copy /Y node_modules\\lucide-static\\icons\\lock-open.svg vendor\\lucide\\lock-open.svg",
+    "check": "node --check popup.js"
+  },
+  "devDependencies": {
+    "lucide-static": "^1.48.0",
+    "webextension-polyfill": "^0.12.0"
+  }
+}
